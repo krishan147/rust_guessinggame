@@ -8,6 +8,6 @@ fn main() { /*function with no parameters*/
     io::stdin().read_line(&mut guess) /*used to get input from the user and place it into a string*/
         .expect("Failed to read line"); /*what prints if no value is typed by user*/
 
-    println!("You guessed {}",guess);
+    println!("You guessed {}",guess); /*prints what the user types in*/
 
 }

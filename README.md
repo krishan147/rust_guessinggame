@@ -1,1 +1,1 @@
-# rust_guessinggame
+# Guess the number game in Rust.

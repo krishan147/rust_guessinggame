@@ -9,19 +9,30 @@ fn main() { /*function with no parameters*/
 
     println!("The secret number is: {}", secret_number);
 
-    println!("Please input your guess.");
+    loop {
 
-    let mut guess = String::new(); /*mutable string so it can change the STring::new(); part returns a new instance of a string*/
+        println!("Please input your guess.");
 
-    io::stdin().read_line(&mut guess) /*used to get input from the user and place it into a string*/
-        .expect("Failed to read line"); /*what prints if no value is typed by user*/
+        let mut guess = String::new(); /*mutable string so it can change the String::new(); part returns a new instance of a string*/
 
-    println!("You guessed {}",guess); /*prints what the user types in*/
+        io::stdin().read_line(&mut guess) /*used to get input from the user and place it into a string*/
+            .expect("Failed to read line"); /*what prints if no value is typed by user*/
 
-    match guess.cmp(&secret_number) {
-        Ordering::Less  => println!("Too small"),
-        Ordering::Greater  => println!("Too big"),
-        Ordering::Equal  => println!("You win"),    
+        let guess: u32 = match guess.trim().parse() { /*handles when text is input*/
+            Ok(num) => num,
+            Err(_) => continue,
+        };
+            
+
+        println!("You guessed {}",guess); /*prints what the user types in*/
+
+        match guess.cmp(&secret_number) {
+            Ordering::Less  => println!("Too small"),
+            Ordering::Greater  => println!("Too big"),
+            Ordering::Equal  => { println!("You win");
+            break;
+            }
+            
+        }
     }
-
 }

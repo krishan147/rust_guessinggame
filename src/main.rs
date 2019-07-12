@@ -7,7 +7,7 @@ fn main() { /*function with no parameters*/
 
     let secret_number = rand::thread_rng().gen_range(1, 101); /* Generates a random no. between two numbers. */ 
 
-    println!("The secret number is: {}", secret_number);
+    /* println!("The secret number is: {}", secret_number); */
 
     loop {
 
@@ -26,7 +26,7 @@ fn main() { /*function with no parameters*/
 
         println!("You guessed {}",guess); /*prints what the user types in*/
 
-        match guess.cmp(&secret_number) {
+        match guess.cmp(&secret_number) { /*match between guess and secret number*/
             Ordering::Less  => println!("Too small"),
             Ordering::Greater  => println!("Too big"),
             Ordering::Equal  => { println!("You win");
